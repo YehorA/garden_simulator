@@ -1,0 +1,5 @@
+In this project I will create a simulation of a small garden where user can plant different types of fruit trees (such as apples, cherries, etc.), each with its own age and characteristics. After that user could simulate the passing of seasons and check how much fruits will be harvested and what the total profit would be. Also final profit could decrease if trees needed any "maintenance" (for example because of disease).
+
+Each tree will be a subclass of a base class FruitTree, and will override methods like get_yield() or get_disease_risk(). These methods will behave differently depending on the type and age of the tree.
+
+I will also create a Garden class to group and manage the trees and run the simulation. I plan to include a simple console interface to interact with the system, and write tests for the key parts of the logic.
