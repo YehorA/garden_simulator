@@ -1,0 +1,20 @@
+from abc import ABC, abstractmethod
+
+class FruitTree(ABC):
+    def __init__(self, age: int):
+        self.age = age  
+
+    @abstractmethod
+    def get_yield(self) -> float:
+
+        pass
+
+    @abstractmethod
+    def needs_pruning(self) -> bool:
+
+        pass
+
+    @abstractmethod
+    def get_disease_risk(self) -> float:
+
+        pass

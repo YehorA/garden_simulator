@@ -1,0 +1,23 @@
+from .fruit_tree import FruitTree
+
+class AppleTree(FruitTree):
+    def get_yield(self) -> float:
+        # Fruit production increases between 3 and 10 and declines after
+        if self.age < 3:
+            return 0
+        elif 3 <= self.age <= 10:
+            return 50 + (self.age - 3) * 10
+        else:
+            return max(0, 100 - (self.age - 10) * 5) 
+
+    def needs_pruning(self) -> bool:
+        # Needs pruning if older than 4 years
+        return self.age >= 4 and self.age % 2 == 0
+
+    def get_disease_risk(self) -> float:
+        if self.age <= 5:
+            return 0.05
+        elif self.age <= 10:
+            return 0.15
+        else:
+            return 0.3
