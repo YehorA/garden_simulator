@@ -24,6 +24,11 @@ class TestPearTree(unittest.TestCase):
         self.assertGreater(PearTree(6).get_yield(), PearTree(5).get_yield())
         self.assertGreater(PearTree(8).get_yield(), PearTree(7).get_yield())
 
+    def test_disease(self):
+        tree = PearTree(age=12)
+        tree.has_disease = True
+        self.assertEqual(tree.get_yield(), 45)
+
 class TestCherryTree(unittest.TestCase):
     def test_yield_peak(self):
         tree = CherryTree(age=11)
