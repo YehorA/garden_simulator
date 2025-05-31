@@ -1,6 +1,7 @@
 import unittest
 from trees.apple_tree import AppleTree
 from trees.pear_tree import PearTree
+from trees.cherry_tree import CherryTree
 from garden import Garden
 
 #TREES TESTING ------------------------------------------------------------------
@@ -16,21 +17,21 @@ class TestAppleTree(unittest.TestCase):
 
 class TestPearTree(unittest.TestCase):
     def test_yield_peak(self):
-        tree = AppleTree(age=12)
+        tree = PearTree(age=12)
         self.assertEqual(tree.get_yield(), 90)
     
     def test_yield_increases_before_peak(self):
-        self.assertGreater(AppleTree(6).get_yield(), AppleTree(5).get_yield())
-        self.assertGreater(AppleTree(8).get_yield(), AppleTree(7).get_yield())
+        self.assertGreater(PearTree(6).get_yield(), PearTree(5).get_yield())
+        self.assertGreater(PearTree(8).get_yield(), PearTree(7).get_yield())
 
 class TestCherryTree(unittest.TestCase):
     def test_yield_peak(self):
-        tree = AppleTree(age=11)
+        tree = CherryTree(age=11)
         self.assertEqual(tree.get_yield(), 80)
     
     def test_yield_increases_before_peak(self):
-        self.assertGreater(AppleTree(6).get_yield(), AppleTree(5).get_yield())
-        self.assertGreater(AppleTree(5).get_yield(), AppleTree(4).get_yield())
+        self.assertGreater(CherryTree(6).get_yield(), CherryTree(5).get_yield())
+        self.assertGreater(CherryTree(5).get_yield(), CherryTree(4).get_yield())
 #-----------------------------------------------------------------------------
 
 class TestGarden(unittest.TestCase):

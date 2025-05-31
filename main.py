@@ -33,20 +33,23 @@ def main():
         except ValueError:
             print("Invalid age.\n")
 
+    def show_all_trees():
+        print()
+        for tree in garden.trees:
+            garden.show_tree(tree)
+        print()
+
     def simulate():
         print()
         garden.simulate_season()
         print()
-
-    def exit_program():
-        print("Goodbye!")
 
     actions = {
         1: add_apple_tree,
         2: add_cherry_tree,
         3: add_pear_tree,
         4: simulate,
-        6: exit_program,
+        5: show_all_trees
     }
 
     while True:
@@ -65,7 +68,6 @@ def main():
             continue
 
         if user_input == 6:
-            exit_program()
             break
 
         action = actions.get(user_input)
