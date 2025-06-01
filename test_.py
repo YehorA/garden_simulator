@@ -15,6 +15,11 @@ class TestAppleTree(unittest.TestCase):
         self.assertGreater(AppleTree(6).get_yield(), AppleTree(5).get_yield())
         self.assertGreater(AppleTree(5).get_yield(), AppleTree(4).get_yield())
 
+    def test_disease(self):
+        tree = AppleTree(age=6)
+        tree.has_disease = True
+        self.assertEqual(tree.get_yield(), 80 * 0.7)
+
 class TestPearTree(unittest.TestCase):
     def test_yield_peak(self):
         tree = PearTree(age=12)
@@ -37,6 +42,12 @@ class TestCherryTree(unittest.TestCase):
     def test_yield_increases_before_peak(self):
         self.assertGreater(CherryTree(6).get_yield(), CherryTree(5).get_yield())
         self.assertGreater(CherryTree(5).get_yield(), CherryTree(4).get_yield())
+
+    def test_disease(self):
+        tree = CherryTree(age=12)
+        tree.has_disease = True
+        self.assertEqual(tree.get_yield(), 80 * 0.3)
+
 #-----------------------------------------------------------------------------
 
 class TestGarden(unittest.TestCase):
