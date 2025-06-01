@@ -5,10 +5,11 @@ class FruitTree(ABC):
     def __init__(self, age: int):
         self.age = age  
         self.has_disease = False
+        self.price_per_kg = None
 
     def check_for_disease(self):
         chance = self.get_disease_risk()
-        self.diseased = random.random() < chance
+        self.has_disease = random.random() < chance
 
     @abstractmethod
     def get_yield(self) -> float:

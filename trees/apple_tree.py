@@ -1,6 +1,11 @@
 from .fruit_tree import FruitTree
 
 class AppleTree(FruitTree):
+    
+    def __init__(self, age: int):
+        super().__init__(age)
+        self.price_per_kg = 3.0
+
     def get_yield(self) -> float:
         # Fruit production increases between 3 and 10 and declines after (if diseased reduced by 50%)
         disease_modifier = 1

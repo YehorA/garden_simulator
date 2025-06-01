@@ -3,6 +3,7 @@ from trees.apple_tree import AppleTree
 from trees.pear_tree import PearTree
 from trees.cherry_tree import CherryTree
 from garden import Garden
+from economy import Economy
 
 #TREES TESTING ------------------------------------------------------------------
 class TestAppleTree(unittest.TestCase):
@@ -92,6 +93,38 @@ class TestGarden(unittest.TestCase):
                 tree.has_disease = True
 
         self.assertLess(len(garden.trees), num_trees)
+
+#ECONOMY TESTING---------------------------------------------------------------------
+class TestEconomy(unittest.TestCase):
+    def test_income(self):
+        economy = Economy()
+        cherry = CherryTree(age=12)
+        pear = PearTree(age=11)
+
+        income = 0
+        income += economy.calculate_tree_yield_income(cherry)
+        income += economy.calculate_tree_yield_income(pear)
+
+        self.assertEqual(income, 673)
+
+    def test_balance(self):
+        garden = Garden()
+        cherry = CherryTree(age=12)
+        pear = PearTree(age=10)
+        garden.add_tree(cherry)
+        garden.add_tree(pear)
+
+        garden.simulate_season()
+
+        cherry.has_disease = False
+        pear.has_disease = False
+
+        garden.simulate_season()
+
+        cherry.has_disease = False
+        pear.has_disease = False
+
+        self.assertEqual(garden.economy.balance, 1108)
 
 
 

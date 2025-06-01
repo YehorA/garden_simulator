@@ -1,6 +1,11 @@
 from .fruit_tree import FruitTree
 
 class CherryTree(FruitTree):
+
+    def __init__(self, age: int):
+        super().__init__(age)
+        self.price_per_kg = 5
+
     def get_yield(self) -> float:
         # Fruit begins around age 4, peaks 10–15, then declines
         disease_modifier = 1
