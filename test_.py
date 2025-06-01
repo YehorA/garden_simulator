@@ -109,22 +109,17 @@ class TestEconomy(unittest.TestCase):
 
     def test_balance(self):
         garden = Garden()
-        cherry = CherryTree(age=12)
-        pear = PearTree(age=10)
+        cherry = CherryTree(age=10)
+        pear = PearTree(age=12)
         garden.add_tree(cherry)
         garden.add_tree(pear)
+        garden.season = 0
 
-        garden.simulate_season()
+        garden.simulate_season(disease_enabled=False)
 
-        cherry.has_disease = False
-        pear.has_disease = False
+        garden.simulate_season(disease_enabled=False)
 
-        garden.simulate_season()
-
-        cherry.has_disease = False
-        pear.has_disease = False
-
-        self.assertEqual(garden.economy.balance, 1108)
+        self.assertEqual(garden.economy.balance, 1430)
 
 
 

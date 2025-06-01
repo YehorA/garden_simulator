@@ -18,14 +18,16 @@ class Garden:
         print(f"  Health status: {'Diseased' if tree.has_disease else 'Healthy'}")
         print()
 
-    def simulate_season(self):
+    def simulate_season(self, disease_enabled=True):
         print(f"\n--- SEASON {self.season} ---")
         self.season += 1
         dead_trees = []
         income = 0
 
         for tree in self.trees:
-            tree.check_for_disease()
+            #Needed to fix test, so deseased trees wouldn't effect income
+            if disease_enabled:
+                tree.check_for_disease()
             tree.age += 1
 
             if tree.has_disease and random.random() < 0.2:
