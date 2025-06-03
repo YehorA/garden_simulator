@@ -6,6 +6,7 @@ class FruitTree(ABC):
         self.age = age  
         self.has_disease = False
         self.price_per_kg = None
+        self.pruning_cost = 0
 
     def check_for_disease(self):
         chance = self.get_disease_risk()

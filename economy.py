@@ -7,3 +7,9 @@ class Economy:
         self.balance += income
         return income
     
+    def charge_pruning_cost(self, tree):
+        if tree.needs_pruning():
+            pruning_fee = tree.pruning_cost
+            self.balance -= pruning_fee
+            return pruning_fee
+        return 0

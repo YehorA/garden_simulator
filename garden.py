@@ -23,6 +23,7 @@ class Garden:
         self.season += 1
         dead_trees = []
         income = 0
+        pruning_cost = 0
 
         for tree in self.trees:
             #Needed to fix test, so deseased trees wouldn't effect income
@@ -44,10 +45,14 @@ class Garden:
                 income += self.economy.calculate_tree_yield_income(tree)
                 self.show_tree(tree)
 
+            pruning_cost += self.economy.charge_pruning_cost(tree)
+
         #remove dead tree
         for dead in dead_trees:
             self.trees.remove(dead)
 
         print(f"Your income during this season is {income}")
+        print()
+        print(f"Pruning cost for this season is {pruning_cost}")
         print()
         print(f"Your balance is {self.economy.balance}")

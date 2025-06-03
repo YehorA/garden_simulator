@@ -5,6 +5,7 @@ class PearTree(FruitTree):
     def __init__(self, age: int):
         super().__init__(age)
         self.price_per_kg = 3.5
+        self.pruning_cost = 7
 
     # Fruit begins around age 5, peaks 12-20, then declines
     def get_yield(self) -> float:

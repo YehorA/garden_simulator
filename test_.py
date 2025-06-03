@@ -119,7 +119,17 @@ class TestEconomy(unittest.TestCase):
 
         garden.simulate_season(disease_enabled=False)
 
-        self.assertEqual(garden.economy.balance, 1430)
+        self.assertEqual(garden.economy.balance, 1418)
+
+    def test_pruning_cost(self):
+        pruning_cost = 0
+        economy = Economy()
+        apple = AppleTree(age=10)
+        cherry = CherryTree(age=12)
+        pruning_cost += economy.charge_pruning_cost(apple)
+        pruning_cost += economy.charge_pruning_cost(cherry)
+
+        self.assertEqual(22, pruning_cost) 
 
 
 
