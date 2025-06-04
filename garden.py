@@ -19,7 +19,7 @@ class Garden:
         print()
 
     def simulate_season(self, disease_enabled=True):
-        print(f"\n--- SEASON {self.season} ---")
+        print(f"\n--------------- SEASON {self.season} ---------------")
         self.season += 1
         dead_trees = []
         income = 0
@@ -56,3 +56,5 @@ class Garden:
         print(f"Pruning cost for this season is {pruning_cost}")
         print()
         print(f"Your balance is {self.economy.balance}")
+        print()
+        print("-----------------------------------------")

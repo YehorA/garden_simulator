@@ -5,6 +5,8 @@ from garden import Garden
 
 def main():
     garden = Garden()
+
+    print("--------------GARDEN SIMULATOR--------------")
     
     def add_apple_tree():
         try:
@@ -53,8 +55,7 @@ def main():
     }
 
     while True:
-        print("""GARDEN SIMULATOR
-
+        print("""
 1. Add Apple Tree
 2. Add Cherry Tree
 3. Add Pear Tree
